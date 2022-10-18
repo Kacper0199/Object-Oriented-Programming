@@ -4,21 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//W metodach testujących można użyć np. następujących asercji:
-//
-//        assertEquals(a, b) - weryfikuje czy obiekty a i b są sobie równe (korzystając z metody equals),
-//        assertTrue(a) - weryfikuje czy wartość logiczna a jest prawdą,
-//        assertFalse(a) - weryfikuje czy wartość logiczna a jest fałszem.
-
-
-//Zaimplementuj test weryfikujący poprawność działania metody next(), dla wszystkich przypadków (dodaj anotację @Test przed deklaracją metody).
-//        Uruchom test korzystając z zielonych trójkątów po lewej stronie.
-//        Zaimplementuj test weryfikujący poprawność działania metody previous(), dla wszystkich przypadków.
-//        Utwórz klasę Vector2dTest.
-//        Dodaj testy weryfikujące poprawność metod: equals(Object other), toString(), precedes(Vector2d other),
-//        follows(Vector2d other), upperRight(Vector2d other), lowerLeft(Vector2d other), add(Vector2d other),
-//        subtract(Vector2d other), opposite().
-
 
 public class MapDirectionTest {
     @Test
@@ -37,4 +22,11 @@ public class MapDirectionTest {
         assertEquals(MapDirection.WEST, MapDirection.NORTH.previous());
     }
 
+    @Test
+    public void toUnitVectorTest() {
+        assertEquals(new Vector2d(0, 1), MapDirection.NORTH.toUnitVector());
+        assertEquals(new Vector2d(1, 0), MapDirection.EAST.toUnitVector());
+        assertEquals(new Vector2d(0, -1), MapDirection.SOUTH.toUnitVector());
+        assertEquals(new Vector2d(-1, 0), MapDirection.WEST.toUnitVector());
+    }
 }

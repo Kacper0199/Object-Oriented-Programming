@@ -44,6 +44,6 @@ public class World {
             case "f" -> Direction.FORWARD;
             case "b" -> Direction.BACKWARD;
             default -> Direction.NONE;
-        }).toList().toArray(new Direction[0]);
+        }).toArray(Direction[]::new);
     }
 }
