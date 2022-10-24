@@ -6,6 +6,8 @@ public enum MapDirection {
     SOUTH,
     WEST;
 
+    final private static MapDirection[] directVals = values();
+
     public String toString() {
         return switch (this) {
             case NORTH -> "Polnoc";
@@ -16,21 +18,11 @@ public enum MapDirection {
     }
 
     public MapDirection next() {
-        return switch (this) {
-            case NORTH -> EAST;
-            case EAST -> SOUTH;
-            case SOUTH -> WEST;
-            case WEST -> NORTH;
-        };
+        return directVals[(this.ordinal()+1) % directVals.length];
     }
 
     public MapDirection previous() {
-        return switch (this) {
-            case NORTH -> WEST;
-            case EAST -> NORTH;
-            case SOUTH -> EAST;
-            case WEST -> SOUTH;
-        };
+        return directVals[(this.ordinal()-1 + directVals.length) % directVals.length];
     }
 
     public Vector2d toUnitVector() {
