@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class OptionsParser {
 
-    public MoveDirection[] parse(String[] directions){
+    public static MoveDirection[] parse(String[] directions){
 
         return Arrays.stream(directions).map(s -> switch(s) {
             case "r", "right" -> MoveDirection.RIGHT;
