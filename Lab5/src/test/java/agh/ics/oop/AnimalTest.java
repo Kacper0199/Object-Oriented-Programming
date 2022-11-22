@@ -41,7 +41,8 @@ public class AnimalTest {
 
     @Test
     public void moveTest() {
-        Animal animal = new Animal();
+        IWorldMap map = new RectangularMap(4, 4);
+        Animal animal = new Animal(map, new Vector2d(2, 2));
 
         assertEquals(animal.getDirection(), MapDirection.NORTH);
         assertEquals(animal.getPosition(), new Vector2d(2,2));

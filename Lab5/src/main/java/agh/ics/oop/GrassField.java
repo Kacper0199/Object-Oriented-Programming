@@ -18,18 +18,18 @@ public class GrassField extends AbstractWorldMap{
         this.boundaryMin = new Vector2d(grassLowerBoundX, grassLowerBoundY);
     }
 
-    public int generateUpperBound(int grassNum) {
+    private int generateUpperBound(int grassNum) {
         int upperBound = (int) sqrt(grassNum * 10);
         this.upperBoundX = upperBound;
         this.upperBoundY = upperBound;
         return upperBound;
     }
 
-    public int generateRandom(int start, int end) {
+    private int generateRandom(int start, int end) {
         return start + (int) (Math.random() * ((end - start) + 1));
     }
 
-    public void addGrassField() {
+    private void addGrassField() {
         Vector2d newField = new Vector2d(generateRandom(lowerBoundX, upperBoundX),
                 generateRandom(lowerBoundY, upperBoundY));
         if (!isOccupied(newField)) {
@@ -37,13 +37,13 @@ public class GrassField extends AbstractWorldMap{
         }
     }
 
-    public void initField() {
+    private void initField() {
         while (grassFields.size() < grassNum) {
             addGrassField();
         }
     }
 
-    public void newBoundView(Vector2d objectPosition){
+    private void newBoundView(Vector2d objectPosition){
         boundaryMax = boundaryMax.upperRight(objectPosition);
         boundaryMin = boundaryMin.lowerLeft(objectPosition);
     }
