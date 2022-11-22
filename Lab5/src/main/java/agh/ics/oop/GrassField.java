@@ -2,7 +2,7 @@ package agh.ics.oop;
 
 import static java.lang.Math.sqrt;
 
-public class GrassField extends AbstractWorldMap {
+public class GrassField extends AbstractWorldMap{
     private int grassNum;
 
     public GrassField(int grassNum) {
